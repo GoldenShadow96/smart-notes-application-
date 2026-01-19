@@ -31,6 +31,7 @@ sudo apt install -y openssl && mkdir certs && cd certs && openssl req -x509 -new
 ## 4. COMPOSING DOCKER CONTAINERS
 
 To run the project you only need to have docker installed.
+
 Simply type in these command lines one-by-one in the projects directory:
 
 ```
@@ -44,4 +45,6 @@ docker compose restart
 ## 5. ENJOY
 
 You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the note application!
+
 To use the app, simply visit ```https://localhost:8443``` on a web browser.
+
