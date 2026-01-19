@@ -35,7 +35,7 @@ At this point to run the project you only need to have docker installed.
 Simply type in these command lines one-by-one in the projects directory:
 
 ```
-docker compose up --build
+docker compose up -d --build
 docker compose exec -T db mariadb -uroot -p<ROOT_PASSWORD> notes_app < .\dump.sql
 docker compose restart
 ```
@@ -47,4 +47,5 @@ docker compose restart
 You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the note application through https!
 
 To use the app, simply visit ```https://localhost:8443``` on a web browser.
+
 
