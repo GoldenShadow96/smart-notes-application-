@@ -20,7 +20,7 @@ Make sure you fill it with your own credentials.
 
 You need to install openssl and generate CA certificates for the nginx reverse-proxy server:
 ``` 
-mkdir certs && cd certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 365 \
+sudo apt install -y openssl && mkdir certs && cd certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 365 \
   -nodes \
   -keyout localhost.key \
   -out localhost.crt \
@@ -42,6 +42,7 @@ You need to install openssl to generate keys for the nginx reverse-proxy server
 ``` ```
 
 *aaaaaaaaaand done!*
+
 
 
 
