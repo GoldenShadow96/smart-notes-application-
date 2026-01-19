@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rejestracja</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-title">🧾 Rejestracja</div>
+      <div class="auth-sub">Utwórz konto i trzymaj notatki tylko dla siebie.</div>
+
+      <form id="registerForm" class="auth-form">
+        <label class="field">
+          <span>Username</span>
+          <input name="username" autocomplete="username" required minlength="3" maxlength="64" />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="pw-wrap">
+            <input id="pw" name="password" type="password" autocomplete="new-password" required minlength="8" />
+            <button type="button" id="togglePw" class="pw-toggle" title="Pokaż/ukryj">👁</button>
+          </div>
+          <div class="hint">Min. 8 znaków.</div>
+        </label>
+
+        <div id="error" class="auth-error hidden"></div>
+
+        <button class="primary auth-btn" type="submit">Załóż konto</button>
+      </form>
+
+      <div class="auth-links">
+        Masz już konto?
+        <a href="/login">Zaloguj się</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notatki</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">📝 Notatki</div>
+
+    <div class="actions">
+      <input id="search" type="search" placeholder="Szukaj…" />
+      <a class="btnlink" href="/graph">Graph</a>
+      <button id="toggleAll">Zwiń wszystko</button>
+      <button id="newNote" class="primary">+ Nowa notatka</button>
+
+      <div class="auth">
+        <span id="whoami" class="muted"></span>
+
+        <a id="loginLink" class="btnlink" href="/login">Zaloguj</a>
+        <a id="registerLink" class="btnlink" href="/register">Rejestracja</a>
+
+        <button id="logoutBtn" class="hidden">Wyloguj</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sortbar container">
+  <button id="sortDate" class="sortbtn">📅 Data</button>
+  <button id="sortTitle" class="sortbtn">🔤 Tytuł</button>
+  <button id="sortCustom" class="sortbtn">🧩 Moje ułożenie</button>
+</div>
+
+  <main class="container">
+    <div id="notes" class="grid"></div>
+    <div id="empty" class="empty hidden">
+      Brak notatek. Jeśli jesteś zalogowany(a), kliknij „Nowa notatka”.
+    </div>
+  </main>
+
+  <template id="noteTemplate">
+    <article class="note">
+      <div class="note-header">
+        <button class="toggle" title="Rozwiń/zwiń" aria-label="Rozwiń/zwiń">▸</button>
+        <input class="title" type="text" />
+        <span class="meta"></span>
+      </div>
+
+      <div class="note-body hidden">
+        <!-- edycja -->
+        <textarea class="content" rows="8" placeholder="Treść notatki… (Markdown działa w podglądzie)"></textarea>
+
+        <!-- podgląd (Markdown render) -->
+        <div class="preview hidden"></div>
+
+        <!-- odpowiedzi/backlinki -->
+        <div class="backlinks hidden">
+          <div class="backlinks-title">Odpowiedzi</div>
+          <div class="backlinks-list"></div>
+        </div>
+
+        <div class="note-footer">
+          <div class="status"></div>
+
+          <label class="pub-switch">
+            <input class="is-public" type="checkbox" />
+            <span class="switch" aria-hidden="true"></span>
+            <span class="label">Publiczna</span>
+          </label>
+
+          <div class="buttons">
+            <button class="replyBtn">Odpowiedz</button>
+            <button class="insertLink">Wstaw link</button>
+            <button class="previewBtn">Podgląd</button>
+            <button class="save">Zapisz</button>
+            <button class="danger delete">Usuń</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Modal: wstawianie linku -->
+  <div id="linkModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="linkModalTitle">
+    <div class="modal-backdrop" data-close="1"></div>
+
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div id="linkModalTitle" class="modal-title">Wstaw link do notatki</div>
+          <div class="modal-sub">Kliknij notatkę, aby wstawić <code>[[#id]]</code> w miejscu kursora.</div>
+        </div>
+        <button id="linkCloseBtn" class="modal-close" title="Zamknij" aria-label="Zamknij">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <input id="linkSearch" type="search" placeholder="Szukaj po tytule…" />
+        <div id="linkList" class="modal-list"></div>
+        <div class="hint">Tip: po wstawieniu linku kliknij „Zapisz”, aby relacja trafiła do <code>note_links</code>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Markdown + sanitizacja (bezpieczny podgląd) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script src="/static/app.js"></script>
+  <script src="/static/reorder.js"></script>
+</body>
+</html>
