@@ -44,8 +44,9 @@ docker compose restart
 
 ## 5. ENJOY
 
-You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the note application through https!
+You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the application through https!
 
 To use the app, simply visit ```https://localhost:8443``` on a web browser.
+
 
 
