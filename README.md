@@ -1,10 +1,10 @@
 ﻿# Smart notes application!
 
-1.INTRO
+## 1. INTRO
 
 This is a docker compose enviroment, for the app creating smart notes locally.
 
-2.ENVIROMENT
+## 2. ENVIROMENT
 
 Before you do anything you NEED to edit these lines of the docker-compose.yml:
 ```
@@ -16,7 +16,7 @@ Before you do anything you NEED to edit these lines of the docker-compose.yml:
 ```
 Make sure you fill it with your own credentials.
 
-3. CERTIFICATES
+## 3. CERTIFICATES
 
 You need to install openssl and generate CA certificates for the nginx reverse-proxy server:
 ``` 
@@ -28,7 +28,7 @@ mkdir certs && cd certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 365 
   -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
 ```
 
-4. COMPOSING DOCKER CONTAINERS
+## 4. COMPOSING DOCKER CONTAINERS
 
 To run the project you only need to have docker installed.
 Simply type in these command lines one-by-one in the projects directory:
@@ -42,6 +42,7 @@ You need to install openssl to generate keys for the nginx reverse-proxy server
 ``` ```
 
 *aaaaaaaaaand done!*
+
 
 
 
