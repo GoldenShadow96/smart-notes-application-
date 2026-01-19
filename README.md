@@ -2,13 +2,15 @@
 
 ## 1. INTRO
 
-This is a docker compose enviroment, for a web app creating smart notes locally.
+This is a docker compose enviroment, for hosting locally a web application for creating smart notes.
 
 ## 2. ENVIROMENT
 
 Before you do anything you NEED to edit these lines of the ```docker-compose.yml``` file:
 ```
 - DB_PASSWORD=<DATABASE_USER_PASSWORD>
+
+test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-uroot", "-p<ROOT_PASSWORD>"]
 
 - MARIADB_ROOT_PASSWORD=<ROOT_PASSWORD>
 
@@ -47,6 +49,8 @@ docker compose restart
 You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the application through https!
 
 To use the app, simply visit ```https://localhost:8443``` on a web browser.
+
+
 
 
 
