@@ -14,7 +14,7 @@ Before you do anything you NEED to edit these lines of the ```docker-compose.yml
 
 - MARIADB_PASSWORD=<DATABASE_USER_PASSWORD>
 ```
-Make sure you fill it with your own credentials.
+Make sure you fill them with your own credentials.
 
 ## 3. CERTIFICATES
 
@@ -47,3 +47,4 @@ docker compose restart
 You are now hosting an nginx reverse-proxy server, listening on the 8443 port, that will redirect all you traffic to the note application through https!
 
 To use the app, simply visit ```https://localhost:8443``` on a web browser.
+
