@@ -38,10 +38,9 @@ docker compose up --build
 docker compose exec -T db mariadb -uroot -p<ROOT_PASSWORD> notes_app < .\dump.sql
 docker compose restart
 ```
-You need to install openssl to generate keys for the nginx reverse-proxy server
-``` ```
 
 *aaaaaaaaaand done!*
+
 
 
 
